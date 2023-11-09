@@ -11,7 +11,7 @@ import HomeComponent from './components/HomeComponent.jsx';
 import VerifyCodeComponent from './components/VerifyCodeComponent.jsx';
 
 function App() {
-  //<BrowserRouter basename='chat-app'>
+  //<BrowserRouter basename='chat-app'> in case deploying to gh pages
   return (
     
     <BrowserRouter>
