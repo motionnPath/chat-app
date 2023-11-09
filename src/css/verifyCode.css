@@ -1,0 +1,38 @@
+.verify-code-component-container {
+    border: solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.verify-code-component-container  > h1 {
+    text-align: center;
+}
+.code-input-container {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+}
+  
+.code-input-container > input {
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  margin: 0 5px;
+}
+.buttons-container{
+    margin-top: 1em;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+#submit-code,#resend-code {
+    
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}

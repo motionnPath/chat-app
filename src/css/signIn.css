@@ -1,0 +1,27 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap');
+
+
+.form-container {
+    color: #0F172A;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 30px !important;
+}
+
+input {
+    border: none;
+    border-bottom: #0F172A solid 1px;
+    font-family: 'Rajdhani', sans-serif;
+}
+#sous-form-text {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;
+    
+}
+#signup-link{
+    color:red;
+    font-weight: 800;
+}
