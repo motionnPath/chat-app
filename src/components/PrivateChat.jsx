@@ -113,6 +113,10 @@ const  PrivateChat = () => {
     }
     getConversation();
   },[])
+
+  useEffect(()=>{
+    console.log("auth user =", auth.user)
+  })
   
 
   return (
