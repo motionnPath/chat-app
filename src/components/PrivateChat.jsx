@@ -57,6 +57,12 @@ const  PrivateChat = () => {
     socket.on('getPrivateMessage', (message) => {
       
       setConversation((prevMessages) => [...prevMessages, message]);
+      if (document.visibilityState !== 'visible') {
+        // If not, show a notification
+        new Notification(`New Message `, {
+          body: message,
+        });
+      }
       
     });
     
