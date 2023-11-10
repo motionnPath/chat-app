@@ -87,7 +87,7 @@ const  PrivateChat = () => {
       console.error("could not connect",e)
     }
     //return () => newSocket.disconnect();
-  },[]) 
+  },[currentUser,recipient]) 
 
   useEffect(() =>{
     if(socket === null) return
