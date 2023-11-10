@@ -77,18 +77,7 @@ const  PrivateChat = () => {
 
   
 
-  useEffect(() => {
-    
-    let newSocket = socketIOClient(process.env.REACT_APP_SOCKET_URL, {
-      withCredentials:true,
-      extraHeaders: {
-        "my-custom-header":"test"
-      }
-    });
-    if(newSocket) console.log("new socket =",newSocket)
-    setSocket(newSocket)
-    //return () => newSocket.disconnect();
-  },[currentUser, recipient]) 
+ 
 
   useEffect(() =>{
     if(socket === null) return
