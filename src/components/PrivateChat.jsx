@@ -77,7 +77,17 @@ const  PrivateChat = () => {
 
   
 
- 
+  useEffect(() => {
+    
+    try {
+      let newSocket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
+      if(newSocket) console.log("new socket =",newSocket)
+      setSocket(newSocket)
+    }catch(e){
+      console.error("could not connect",e)
+    }
+    //return () => newSocket.disconnect();
+  },[]) 
 
   useEffect(() =>{
     if(socket === null) return
