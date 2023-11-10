@@ -25,9 +25,9 @@ function App() {
           
           <Route element={<PersistLogin />}>
             <Route element={<RequireAuth />}>
-              <Route path="/chat" element={<ChatComponent />} exact />
-              <Route path="/first-layout" element={<FirstLayoutComponent />} exact />
-              <Route path="/private-chat/:id" element={<PrivateChat />} exact />
+              <Route path="/chat" element={<ChatComponent />} />
+              <Route path="/first-layout" element={<FirstLayoutComponent />} />
+              <Route path="/private-chat/:id" element={<PrivateChat />} />
             </Route>
           </Route>
        
