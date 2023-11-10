@@ -38,7 +38,7 @@ function FirstLayoutComponent() {
             setUsers(res.data)
         }
         getUsers()
-    })
+    },[])
   return (
     <>
         <div className="first-layout-container">
