@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 
 import ChatComponent from './components/ChatComponent';
 import SignInFormComponent from './components/signInComponent.jsx';
@@ -16,7 +16,7 @@ function App() {
     
     <BrowserRouter>
       <Routes>
-        <Switch>
+       
           <Route path="/" element={<HomeComponent />} />
           <Route path="/signup" element={<SignUpFormComponent />} />
           <Route path="/verify-code" element={<VerifyCodeComponent />} />
@@ -30,7 +30,7 @@ function App() {
               <Route path="/private-chat/:id" element={<PrivateChat />} exact />
             </Route>
           </Route>
-        </Switch>
+       
       </Routes>
       </BrowserRouter>
   
