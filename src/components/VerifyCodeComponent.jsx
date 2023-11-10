@@ -26,8 +26,7 @@ const VerifyCodeComponent = () => {
     if(res) {
      
       if(parseInt(code.join(''), 10) === res.data.verificationCode ) {
-        setVerified(true)
-        
+         setVerified(true);
       }
     }
   }
@@ -50,8 +49,8 @@ const VerifyCodeComponent = () => {
     setNewCode(generateRandomCode());
   },[])
   useEffect(() => {
-    verified && <Navigate to="/signin" /> 
-  })
+    verified && <Navigate to="/signin"> </Navigate> 
+  },[verified])
   return (
     <>
       <div className="verify-code-component-container">
@@ -92,6 +91,9 @@ const VerifyCodeComponent = () => {
         <button id="submit-code" onClick={handleSendCode}> Verify Code</button>
         <div><p>or</p></div>
         <button id="resend-code" onClick={handleResendCode}> Resend Code</button>
+        {
+          verified && <Navigate to={`/signin`}> </Navigate> 
+        }
         </div>
       </div>
     </>
