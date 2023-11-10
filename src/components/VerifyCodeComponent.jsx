@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {Navigate} from "react-router-dom"
 import { generateRandomCode } from '../utils/randomCodeGenerator.js';
 import axios from '../api/axios'
 import '../css/verifyCode.css'
@@ -8,6 +9,7 @@ const VerifyCodeComponent = () => {
   const [code, setCode] = useState(['', '', '', '', '']);
   const [currentUser,setCurrentUser] = useState(null);
   const [newCode, setNewCode] = useState(null);
+  const [verified, setVerified] = useState(false);
 
   const handleInputChange = (e, index) => {
     const newCode = [...code];
@@ -24,7 +26,8 @@ const VerifyCodeComponent = () => {
     if(res) {
      
       if(parseInt(code.join(''), 10) === res.data.verificationCode ) {
-        window.location.href = `${process.env.REACT_APP_CLIENT_URL}/signin `
+        setVerified(true)
+        
       }
     }
   }
@@ -46,6 +49,9 @@ const VerifyCodeComponent = () => {
   useEffect(()=>{
     setNewCode(generateRandomCode());
   },[])
+  useEffect(() => {
+    verified && <Navigate to="/signin" /> 
+  })
   return (
     <>
       <div className="verify-code-component-container">
