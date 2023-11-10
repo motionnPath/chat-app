@@ -23,11 +23,13 @@ function App() {
           <Route path="/signin" element={<SignInFormComponent />} />
           
           
-          
+          <Route element={<PersistLogin />}>
+            <Route element={<RequireAuth />}>
               <Route path="/chat" element={<ChatComponent />} />
               <Route path="/first-layout" element={<FirstLayoutComponent />} />
               <Route path="/private-chat/:id" element={<PrivateChat />} />
-           
+            </Route>
+          </Route>
        
       </Routes>
       </BrowserRouter>
