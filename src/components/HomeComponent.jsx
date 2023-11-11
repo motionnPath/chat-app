@@ -52,7 +52,7 @@ const HomeComponent = () => {
       setIndex((index + 1) % values.length)
       setLisaStyle(values[index])
       setBerlinStyle(values[index + 1])
-      setCatiaStyle(values [index - 1 ])
+      setCatiaStyle(values[index - 1 ])
     },4000)
   })
 
