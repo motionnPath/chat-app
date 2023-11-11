@@ -55,6 +55,21 @@ const HomeComponent = () => {
       setCatiaStyle(values [index - 1 ])
     },4000)
   })
+
+  // asking for notification permission 
+  useEffect(() => {
+    const requestNotificationPermission = async () => {
+      if (Notification.permission !== 'granted') {
+        try {
+          await Notification.requestPermission();
+        } catch (error) {
+          console.error('Error requesting notification permission:', error);
+        }
+      }
+    };
+
+    requestNotificationPermission();
+  }, []);
   
   return (
     <>

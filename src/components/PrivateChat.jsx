@@ -57,12 +57,13 @@ const  PrivateChat = () => {
     socket.on('getPrivateMessage', (message) => {
       
       setConversation((prevMessages) => [...prevMessages, message]);
-      if (document.visibilityState !== 'visible') {
-        // If not, show a notification
-        new Notification(`New Message `, {
+      // sending notification to recipient 
+      if (Notification.permission === 'granted') {
+        new Notification('New Message Received', {
           body: message,
         });
       }
+      
       
     });
     
@@ -87,7 +88,6 @@ const  PrivateChat = () => {
     
     try {
       let newSocket = socketIOClient(process.env.REACT_APP_SOCKET_URL);
-      console.log("new socket =",newSocket)
       setSocket(newSocket)
     }catch(e){
       console.error("could not connect",e)
