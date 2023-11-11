@@ -60,7 +60,7 @@ const  PrivateChat = () => {
       // sending notification to recipient 
       if (Notification.permission === 'granted') {
         new Notification('New Message Received', {
-          body: message,
+          body: message.msg,
         });
       }
       
