@@ -30,5 +30,5 @@ const registerSW = async () => {
     console.log(' push sent ...')
 }
 
-export default registerSW;
+module.exports = { registerSW };
 
