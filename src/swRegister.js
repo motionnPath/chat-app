@@ -8,6 +8,7 @@ export const registerSW = async () => {
         scope:'/'
     })
     console.log("sw registered... ",register);
+
     const subscription = await register.pushManager.subscribe({
         userVisibleOnly: true,
         applicationServerKey: process.env.REACT_APP_PUBLIC_VAPI_KEY,
@@ -19,8 +20,8 @@ export const registerSW = async () => {
     // send push notification
     console.log(' sending push notification...')
     await axios.post('/endpoints/subscribe-to-push-notification',{
-        method: 'POST',
-        body: JSON.stringify(subscription),
+    
+        body: subscription,
         headers: {
             'content-type': 'application/json'
         }
