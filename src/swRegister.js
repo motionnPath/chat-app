@@ -1,6 +1,6 @@
 import axios from './api/axios'
 
-const registerSW = async () => {
+export const registerSW = async () => {
 
     let swUrl = `${process.env.REACT_APP_CLIENT_URL}/serviceworker.js`;
 
@@ -30,5 +30,4 @@ const registerSW = async () => {
     console.log(' push sent ...')
 }
 
-module.exports = { registerSW };
 
