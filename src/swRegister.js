@@ -2,14 +2,12 @@ import axios from './api/axios'
 
 export const registerSW = async () => {
 
-    let swUrl = `${process.env.REACT_APP_CLIENT_URL}/serviceworker.js`;
-
-    const register = await navigator.serviceWorker.register(swUrl).then(res => {
-        console.warn("SW registered ..", res)
-    }).catch(e => {
-        console.error("ERROR :SW not registered ..", e)
+    let swUrl = `/serviceworker.js`;
+    console.log("sw registering... ");
+    const register = await navigator.serviceWorker.register(swUrl,{
+        scope:'/'
     })
-
+    console.log("sw registered... ",register);
     const subscription = await register.pushManager.subscribe({
         userVisibleOnly: true,
         applicationServerKey: process.env.REACT_APP_PUBLIC_VAPI_KEY,
