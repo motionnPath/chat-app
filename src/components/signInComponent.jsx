@@ -4,6 +4,7 @@ import mobile_login from '../svg/mobile_login.svg'
 import axios from '../api/axios.js'
 import '../css/signIn.css';
 import AuthContext from '../context/AuthProvider.js';
+import { registerSW } from './swRegister.js';
 
 
 
@@ -40,6 +41,9 @@ function SignInFormComponent() {
           user:d.data.username, 
           accessToken: d.data.accessToken
         })
+
+        // registering service worker hier after sucdcessfully loggedin
+        registerSW();
         
       })
 
