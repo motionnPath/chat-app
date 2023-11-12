@@ -20,7 +20,7 @@ export const registerSW = async () => {
     // send push notification
     console.log(' sending push notification...')
     await axios.post('/endpoints/subscribe-to-push-notification',{
-        body: JSON.stringify(subscription),
+        subscription
     })
     console.log(' push sent ...')
 }
