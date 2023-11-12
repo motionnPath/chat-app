@@ -5,6 +5,6 @@ console.warn("service worker in public")
     console.log('Push recieved ..');
 
     this.registration.showNotification(data.title, {
-        body: "notified by me "
+        body: "Welcome ❤️ Enjoy connecting with your friends"
     })
 })
