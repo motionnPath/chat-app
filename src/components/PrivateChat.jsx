@@ -45,10 +45,10 @@ const  PrivateChat = () => {
       sender:currentUser,
       recipient,
       new_msg:msg
-    }).catch(err => console.log(" new msg notification err",err))
+    }).then(()=> setmsg("") ).catch(err => console.log(" new msg notification err",err))
     
     
-    setmsg("");
+    
   };
  
 
