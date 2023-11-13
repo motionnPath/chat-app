@@ -62,9 +62,9 @@ const  PrivateChat = () => {
       // sending notification to recipient 
 
       await axios.post('/endpoints/new-msg-notification',{
-        currentUser,
-        recipient,
-        message
+        sender:message.from,
+        recipient:message.to,
+        new_msg:message.message
       }).catch(err => console.log(" new msg notification err",err))
       
       
