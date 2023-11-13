@@ -43,7 +43,8 @@ function SignInFormComponent() {
         })
 
         // registering service worker hier after sucdcessfully loggedin
-        registerSW();
+        // in order to assign his device to his email
+        registerSW(d.data.username, d.data.email);
         
       })
 
