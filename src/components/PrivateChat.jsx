@@ -37,20 +37,23 @@ const  PrivateChat = () => {
       message:msg,
       room_1: `${currentUser}-${recipient}`,
       room_2: `${recipient}-${currentUser}`,
-    })
+    })    
+    setmsg('');
+  };
+  
+  useEffect(() =>{
 
     // sending notification to recipient 
+    const sendPushnotification = async() =>{
+      await axios.post('/endpoints/new-msg-notification',{
+        sender:newMessage.from,
+        recipient:newMessage.to,
+        new_msg:newMessage.message
+      }).catch(err => console.log(" new msg notification err",err))
+    }
+    sendPushnotification()
 
-    await axios.post('/endpoints/new-msg-notification',{
-      sender:currentUser,
-      recipient,
-      new_msg:msg
-    }).then(()=> setmsg("") ).catch(err => console.log(" new msg notification err",err))
-    
-    
-    
-  };
- 
+  },[newMessage])
 
   useEffect(()=>{
     if(newMessage === null) return;
