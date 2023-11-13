@@ -29,7 +29,7 @@ const  PrivateChat = () => {
     e.preventDefault();
     setmsg(e.target.value)
   }
-  const handleSendMsg = () => {
+  const handleSendMsg = async() => {
   
     setNewMesage({ 
       from:currentUser,
@@ -38,6 +38,12 @@ const  PrivateChat = () => {
       room_1: `${currentUser}-${recipient}`,
       room_2: `${recipient}-${currentUser}`,
     })
+
+    await axios.post('/endpoints/new-msg-notification',{
+      currentUser,
+      recipient,
+      msg
+    }).catch(err => console.log(" new msg notification err",err))
     
     setmsg("");
   };
