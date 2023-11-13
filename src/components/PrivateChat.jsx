@@ -39,11 +39,7 @@ const  PrivateChat = () => {
       room_2: `${recipient}-${currentUser}`,
     })
 
-    await axios.post('/endpoints/new-msg-notification',{
-      currentUser,
-      recipient,
-      msg
-    }).catch(err => console.log(" new msg notification err",err))
+    
     
     setmsg("");
   };
@@ -60,15 +56,17 @@ const  PrivateChat = () => {
       
       return;
     }
-    socket.on('getPrivateMessage', (message) => {
+    socket.on('getPrivateMessage', async(message) => {
       
       setConversation((prevMessages) => [...prevMessages, message]);
       // sending notification to recipient 
-      if (Notification.permission === 'granted') {
-        new Notification('New Message Received', {
-          body: message.msg,
-        });
-      }
+
+      await axios.post('/endpoints/new-msg-notification',{
+        currentUser,
+        recipient,
+        message
+      }).catch(err => console.log(" new msg notification err",err))
+      
       
       
     });
